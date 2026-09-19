@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Mi App{% endblock %}</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container">
+      <!-- Logo / Marca -->
+      <a class="navbar-brand fw-bold" href="{{ url_for('inicio') }}">
+        <i class="bi bi-shop"></i> MiApp
+      </a>
+
+      <!-- Botón hamburguesa (responsive) -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+        aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Contenido colapsable -->
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <!-- Enlaces izquierda -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+          <li class="nav-item">
+            <a class="nav-link {% if request.endpoint == 'inicio' %}active{% endif %}" href="{{ url_for('inicio') }}">
+              <i class="bi bi-house-door"></i> Inicio
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle {% if request.endpoint == 'nosotros' %}active{% endif %}" href="#"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-info-circle"></i> Nosotros
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{{ url_for('nosotros') }}">Quiénes somos</a></li>
+              <li><a class="dropdown-item" href="{{ url_for('trabajo') }}">Grupo de trabajo</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.endpoint == 'contacto' %}active{% endif %}"
+              href="{{ url_for('contacto') }}">
+              <i class="bi bi-person-rolodex"></i> Contacto
+            </a>
+          </li>
+        </ul>
+
+        <!-- Botón Login (derecha) -->
+        <div class="d-flex">
+          <a href="{{ url_for('login') }}" class="btn btn-light text-primary fw-semibold px-3 rounded-pill shadow-md">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido -->
+  <main class="container my-4">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="container-fluid mt-4">
+    <div class="row p-5 pb-3 bg-dark text-bg-dark">
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <p class="h5">Mi APP</p>
+        <p class=" text-secondary">Juigalpa, chontales</p>
+        <p class=" text-secondary">Nicaragua</p>
+        <p class=" text-secondary">Tel: +505 8888-8888</p>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <p class="h5 mb-3">Cursos</p>
+        <div class="mb-2">
+          <a class=" text-secondary link-primary link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+            href="#">Python</a>
+        </div>
+        <div class="mb-2">
+          <a class="text-secondary link-primary link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+            href="#">Flask</a>
+        </div>
+        <div class="mb-2">
+          <a class="text-secondary link-primary link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+            href="#">Bootstrap</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <p class="h5 mb-3">Links</p>
+        <div class=" mb-2">
+          <a class=" text-secondary text-decoration-none" href="#">Terms & Conditions</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <p class="h5 mb-3">Contacto</p>
+        <div class=" mb-2">
+          <a class=" text-secondary text-decoration-none btn-1" href="#"> <i class="bi bi-facebook"></i> Facebook</a>
+        </div>
+        <div>
+          <a class=" text-secondary text-decoration-none" href="#"><i class="bi bi-instagram"></i> Instagram</a>
+        </div>
+      </div>
+      <hr>
+      <div class=" col-xs-12 pt-2">
+        <p class=" text-white text-center">&copy Copyright - All rights reserver 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

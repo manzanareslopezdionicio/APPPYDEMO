@@ -145,24 +145,35 @@
                     Estamos aquí para ayudarte.</p>
                 <div class="row col-md-12">
                     <form action="#" method="post">
-                        <label for="fname" class="form-label">Primer Nombre:</label>
-                        <input type="text" class="form-control" id="fname" name="primernombre"
-                            placeholder="Your name..">
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="email" name="correo"
+                                placeholder="Your email..">
+                            <label for="email">Correo Electrónico</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="fname" name="primernombre"
+                                placeholder="Your name..">
+                            <label for="fname" class="form-label">Primer Nombre:</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="lname" name="apellido"
+                                placeholder="Your last name..">
+                            <label for="lname" class="form-label">Apellido:</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select id="pais" name="pais" class="form-select" aria-label="Seleccionar país">
+                                <option selected>Abra para seleccionar el menu</option>
+                                <option value="1">Canada</option>
+                                <option value="2">USA</option>
+                            </select>
+                            <label for="pais" class="form-label">Seleccionar país</label>
+                        </div>
 
-                        <label for="lname" class="form-label">Apellido:</label>
-                        <input type="text" class="form-control" id="lname" name="apellidO"
-                            placeholder="Your last name..">
-
-                        <label for="pais" class="form-label">País:</label>
-                        <select id="country" name="country" class="form-control">
-                            <option selected>Seleccionar país</option>
-                            <option value="1">Canada</option>
-                            <option value="2">USA</option>
-                        </select>
-
-                        <label for="comentario" class="form-label">Comentario:</label>
-                        <textarea class="form-control" id="comentario" name="comentario" placeholder="Write something.."
-                            style="height:100px"></textarea>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" id="comentario" name="comentario"
+                                placeholder="Write something.." style="height:100px"></textarea>
+                            <label for="comentario" class="form-label">Comentario:</label>
+                        </div>
 
                         <div class="mt-3 d-grid gap-2 col-6 mx-auto ">
                             <button type="submit" class="btn btn-primary">Enviar</button>

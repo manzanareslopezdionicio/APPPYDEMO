@@ -1,6 +1,17 @@
 from flask import Flask, render_template
+import config
+from flask_mysqldb import MySQL
 
 app = Flask(__name__)
+
+# Configuracion de la base de datos
+app.config['SECRET_KEY'] = config.SECRET_KEY
+app.config['MYSQL_HOST'] = config.MYSQL_HOST
+app.config['MYSQL_USER'] = config.MYSQL_USER
+app.config['MYSQL_PASSWORD'] = config.MYSQL_PASSWORD
+app.config['MYSQL_DB'] = config.MYSQL_DB
+
+mysql = MySQL(app)  
 
 @app.route("/")
 def inicio():
@@ -29,6 +40,11 @@ def trabajo():
 @app.route("/registro")
 def registro():
     return render_template("registro.html")
+
+# Funcion de Login
+@app.route("/login")
+
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
